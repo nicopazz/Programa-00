@@ -4,24 +4,59 @@ class Program
 {
     static void Main(string[] args)
     {
-        const string NOMBRE_TIENDA = "Esmae Tienda Online";
-        const string VERSION_PLATAFORMA = "v2.0.5";
-        const int MONTO_ENVIO_GRATIS = 50000;
+        Console.WriteLine("=== TIENDA ONLINE ===");
 
-        Console.WriteLine("=== " + NOMBRE_TIENDA + " (" + VERSION_PLATAFORMA + ") ===");
-        Console.WriteLine("Cargando politicas de la tienda...");
-        Console.WriteLine("Promocion: Envio gratis superando los $" + MONTO_ENVIO_GRATIS);
-        
-        const int TOTAL_CARRITO = 62500;
-        const bool APLICA_ENVIO = TOTAL_CARRITO >= MONTO_ENVIO_GRATIS;
+        // Ejemplo 1
+        const int CUOTAS_SIN_INTERES = 3;
+        int cuotasSeleccionadas = 6; 
+        bool tieneRecargo = cuotasSeleccionadas > CUOTAS_SIN_INTERES;
 
-        Console.WriteLine("\nVerificando carrito de $" + TOTAL_CARRITO + "...");
-        Console.WriteLine("Minimo requerido: $" + MONTO_ENVIO_GRATIS);
-        Console.WriteLine("Envio bonificado (valor bool constante): " + APLICA_ENVIO);
+        Console.WriteLine("\n1. FINANCIACIÓN");
+        Console.WriteLine("Máximo sin interés: " + CUOTAS_SIN_INTERES + " cuotas.");
+        Console.WriteLine("Cuotas elegidas: " + cuotasSeleccionadas);
+        Console.WriteLine("¿Aplica recargo (bool)?: " + tieneRecargo);
 
-        Console.WriteLine("Constante NOMBRE_TIENDA = " + NOMBRE_TIENDA);
-        Console.WriteLine("Constante VERSION_PLATAFORMA = " + VERSION_PLATAFORMA);
 
+        // Ejemplo 2
+        const double DESCUENTO_TRANSFERENCIA = 0.15; 
+        string medioDePago = "Transferencia";
+        bool aplicaDescuento = medioDePago == "Transferencia";
+
+        Console.WriteLine("\n2. PROMOCIONES DE PAGO");
+        Console.WriteLine("Descuento por transferencia: " + (DESCUENTO_TRANSFERENCIA * 100) + "%");
+        Console.WriteLine("¿Recibe descuento (bool)?: " + aplicaDescuento);
+
+
+        // Ejemplo 3
+        const int STOCK_MINIMO_ALERTA = 5;
+        int stockEspejoRedondo = 2; 
+        bool requiereReposicion = stockEspejoRedondo <= STOCK_MINIMO_ALERTA;
+
+        Console.WriteLine("\n3. CONTROL DE STOCK");
+        Console.WriteLine("Alerta configurada en: " + STOCK_MINIMO_ALERTA + " unidades.");
+        Console.WriteLine("Stock actual del Espejo Redondo: " + stockEspejoRedondo);
+        Console.WriteLine("¿Requiere fabricar más (bool)?: " + requiereReposicion);
+
+
+        // Ejemplo 4
+        const int MAX_PESO_IMAGEN_MB = 2;
+        double pesoImagenSubida = 3.5;
+        bool imagenValida = pesoImagenSubida <= MAX_PESO_IMAGEN_MB;
+
+        Console.WriteLine("\n4. PANEL DE ADMIN - SUBIDA DE PRODUCTOS");
+        Console.WriteLine("Peso máximo permitido: " + MAX_PESO_IMAGEN_MB + "MB.");
+        Console.WriteLine("Peso de la imagen subida: " + pesoImagenSubida + "MB.");
+        Console.WriteLine("¿Se puede guardar la imagen (bool)?: " + imagenValida);
+
+
+        // Ejemplo 5
+        const bool MODO_MANTENIMIENTO = false; 
+
+        Console.WriteLine("\n5. ESTADO DEL SISTEMA");
+        Console.WriteLine("¿La tienda está en mantenimiento?: " + MODO_MANTENIMIENTO);
+        Console.WriteLine("¿Se permiten realizar compras?: " + !MODO_MANTENIMIENTO);
+
+        Console.WriteLine("\nPresiona ENTER para cerrar.");
         Console.ReadLine();
     }
 }
